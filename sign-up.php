@@ -26,46 +26,74 @@
                             if ($dbConnection->connect_error) {
                                 die("Connection failed: " . $dbConnection->connect_error);
                             }
+
                             $name = $_POST['name'];
                             $email = $_POST['email'];
                             $mobile = $_POST['mobile'];
                             $description = $_POST['description'];
 
-                            $sql = "INSERT INTO signup_form (name, mobile, email, description)
-VALUES ('$name', '$mobile', '$email', '$description');
-";
+                            // Check if phone number exists
+                            $phoneCheckUrl = "https://app.didar.me/api/Contact/GetByPhoneNumber?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
+                            $phoneData = array("MobilePhone" => $mobile);
+                            $ch_phone = curl_init($phoneCheckUrl);
+                            curl_setopt($ch_phone, CURLOPT_POST, 1);
+                            curl_setopt($ch_phone, CURLOPT_POSTFIELDS, json_encode($phoneData));
+                            curl_setopt($ch_phone, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                            curl_setopt($ch_phone, CURLOPT_RETURNTRANSFER, true);
+                            $phoneResponse = curl_exec($ch_phone);
+                            curl_close($ch_phone);
 
+                            $contactId = "";
+                            $createNewContact = true;
 
+                            if ($phoneResponse === false) {
+                                $error_message = "Phone Check API error: " . curl_error($ch_phone);
+                            } else {
+                                $phoneData = json_decode($phoneResponse, true);
+                                if (!empty($phoneData['Response'])) {
+                                    $contactId = $phoneData['Response'][0]['Id'];
+                                    $createNewContact = false;
+                                }
+                            }
+
+                            // Insert into local database
+                            $sql = "INSERT INTO signup_form (name, mobile, email, description) VALUES ('$name', '$mobile', '$email', '$description');";
                             if (mysqli_query($dbConnection, $sql)) {
                                 if (mysqli_affected_rows($dbConnection) > 0) {
+                                    if ($createNewContact) {
+                                        // Create new contact
+                                        $apiUrl = "https://app.didar.me/api/contact/save?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
+                                        $data = array(
+                                            "Contact" => array(
+                                                "VisibilityType" => "All",
+                                                "LastName" => $name,
+                                                "WorkPhone" => $mobile,
+                                                "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
+                                                "Email" => $email,
+                                                "Type" => "Person"
+                                            )
+                                        );
+                                        $ch_contact = curl_init($apiUrl);
+                                        curl_setopt($ch_contact, CURLOPT_POST, 1);
+                                        curl_setopt($ch_contact, CURLOPT_POSTFIELDS, json_encode($data));
+                                        curl_setopt($ch_contact, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                                        curl_setopt($ch_contact, CURLOPT_RETURNTRANSFER, true);
+                                        $response = curl_exec($ch_contact);
+                                        curl_close($ch_contact);
 
-                                    $apiUrl = "https://app.didar.me/api/contact/save?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
-                                    $data = array(
-                                        "Contact" => array(
-                                            "VisibilityType" => "All",
-                                            "LastName" => $name,
-                                            "WorkPhone" => $mobile,
-                                            "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
-                                            "Email" => $email,
-                                            "Type" => "Person"
-                                        )
-                                    );
-                                    $ch_contact = curl_init($apiUrl);
-                                    curl_setopt($ch_contact, CURLOPT_POST, 1);
-                                    curl_setopt($ch_contact, CURLOPT_POSTFIELDS, json_encode($data));
-                                    curl_setopt($ch_contact, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-                                    curl_setopt($ch_contact, CURLOPT_RETURNTRANSFER, true);
-                                    $response = curl_exec($ch_contact);
+                                        if ($response === false) {
+                                            $error_message = "Contact API error: " . curl_error($ch_contact);
+                                        } else {
+                                            $contactData = json_decode($response, true);
+                                            $contactId = $contactData['Response']['Id'];
+                                        }
+                                    }
 
-                                    if ($response === false) {
-                                        echo "Contact API error: " . curl_error($ch_contact);
-                                    } else {
-                                        $contactData = json_decode($response, true);
-                                        $contactId = $contactData['Response']['Id'];
-                                        // DEAL
+                                    if (!empty($contactId)) {
+                                        // Create deal
                                         $dealData = array(
                                             "Deal" => array(
-                                                "Title" => ' معامله با ' . $name ,
+                                                "Title" => ' معامله با ' . $name,
                                                 "PipelineStageId" => "f88f8f5f-7ec6-4613-8b32-ce6da62a9403",
                                                 "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
                                                 "PersonId" => $contactId,
@@ -85,6 +113,7 @@ VALUES ('$name', '$mobile', '$email', '$description');
                                             $dealResponse = json_decode($response2, true);
                                             $dealId = $dealResponse['Response']['Id'];
 
+                                            // Create note
                                             $noteData = array(
                                                 "Activity" => array(
                                                     "ActivityTypeId" => "00000000-0000-0000-0000-000000000000",
@@ -113,17 +142,16 @@ VALUES ('$name', '$mobile', '$email', '$description');
                                             $response3 = curl_exec($ch_note);
                                             curl_close($ch_note);
                                         }
-                                        curl_close($ch_contact);
+                                        curl_close($ch_deal);
                                     }
                                 } else {
                                     echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);
                                 }
                             }
                             mysqli_close($dbConnection);
-
                         }
-
                         ?>
+
                         <input type="hidden" name="_method" value="POST" >
                         <label for="name" >نام و نام خانوادگی</label>
                         <input type="text" id="name" name="name" placeholder="" required>
@@ -141,7 +169,6 @@ VALUES ('$name', '$mobile', '$email', '$description');
                         <input type="submit" name="submit" value="ثبت نام" class="submit contact">
 
                     </form>
-
 
                 </div>
             </div>

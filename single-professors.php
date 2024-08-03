@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 
 
@@ -13,28 +12,34 @@
                             <img src="<?php echo get_field('main-img') ?>" alt="<?php echo get_the_title(); ?>">
                         </div>
 
-                            <a class="view-all" href="<?php echo get_field('professors-link', 'option') ?>">
-                                مشاهده همه اساتید <img src="<?php echo SALES_ACADEMY; ?>/assets/img/arrow-left.svg"
-                                                       alt="">
-                            </a>
+                        <a class="view-all" href="<?php echo get_field('professors-link', 'option') ?>">
+                            مشاهده همه اساتید <img src="<?php echo SALES_ACADEMY; ?>/assets/img/arrow-left.svg"
+                                                   alt="">
+                        </a>
 
                         <div class="social">
                             <?php if (get_field('has_linkedin') == true) { ?>
                                 <a href="<?php echo get_field('linkedin') ?>" rel="nofollow">
-                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/linkedin.svg" alt="linkedin">
-                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/linkedin-b.svg" alt="linkedin">
+                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/linkedin.svg"
+                                         alt="linkedin">
+                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/linkedin-b.svg"
+                                         alt="linkedin">
                                 </a>
                             <?php } ?>
                             <?php if (get_field('has_instagram') == true) { ?>
                                 <a href="<?php echo get_field('instagram') ?>" rel="nofollow">
-                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/instagram.svg" alt="instagram">
-                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/instagram-b.svg" alt="instagram">
+                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/instagram.svg"
+                                         alt="instagram">
+                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/instagram-b.svg"
+                                         alt="instagram">
                                 </a>
                             <?php } ?>
                             <?php if (get_field('has_website') == true) { ?>
                                 <a href="<?php echo get_field('website') ?>" rel="nofollow">
-                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/web.svg" alt="website">
-                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/web-b.svg" alt="website">
+                                    <img class="first" src="<?php echo SALES_ACADEMY; ?>/assets/img/web.svg"
+                                         alt="website">
+                                    <img class="second" src="<?php echo SALES_ACADEMY; ?>/assets/img/web-b.svg"
+                                         alt="website">
                                 </a>
                             <?php } ?>
                         </div>
@@ -42,7 +47,7 @@
                     <div class="col-lg-7 col-md-7 col-sm-12">
                         <div class="content">
                             <div class="name-img">
-                              <?php the_title(); ?>
+                                <?php the_title(); ?>
                             </div>
                             <div class="position">
                                 <?php echo get_field('position') ?>
@@ -59,9 +64,16 @@
                                 </ul>
                             <?php endif; ?>
                             <div class="excerpt">
+                                <div class="mt-4 mb-4 mobile">
+                                    <?php echo get_field('iframe') ?>
+                                </div>
                                 <?php echo the_content() ?>
+
+                               <div class="mt-4 mb-2 desktop">
+                                   <?php echo get_field('iframe') ?>
+                               </div>
                             </div>
-                             <h3>
+                            <h3>
                                 دوره‌های آموزشی:
                             </h3>
                             <?php if (have_rows('courses')): ?>

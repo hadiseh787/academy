@@ -421,7 +421,6 @@ get_header();
                     <h2>
                         مقالاتی در مورد فروش
                     </h2>
-
                     <?php
                     $args = array(
                         'post_type' => 'post',
@@ -465,4 +464,9 @@ get_header();
         </div>
     </section>
 </main>
+<section>
+    <div class="fixed-signup">
+        <a href="https://didarsalesdemy.com/courses/form/">ثبت نام در دوره</a>
+    </div>
+</section>
 <?php get_footer(); ?>

@@ -3423,6 +3423,9 @@ a.comment-reply-link {
         margin-right: -75%;
     }
 
+    .content {
+        padding: 6px 10px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -3809,7 +3812,7 @@ a.comment-reply-link {
     }
 
     footer.has-padding {
-        padding-bottom: 57px;
+        padding-bottom: 80px;
     }
 
     #to_top_scrollup {

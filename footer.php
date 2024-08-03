@@ -6,7 +6,7 @@
 ?>
 
 <?php if (!is_page_template('sign-up.php') && !is_page_template('success.php')) { ?>
-    <footer class="<?php if (is_singular('post') || is_singular('courses')) {
+    <footer class="<?php if (is_singular('post') || is_singular('courses') || is_page_template('home-page.php'))  {
         echo 'has-padding';
     } ?>">
         <div class="container-fluid">

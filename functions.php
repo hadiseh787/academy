@@ -22,7 +22,6 @@ function wp_blank_setup() {
 
 	add_theme_support( 'post-thumbnails' );
 
-    add_theme_support('woocommerce');
 
 	load_theme_textdomain( 'wp-blank', get_template_directory() . '/languages' );
 
@@ -30,26 +29,6 @@ function wp_blank_setup() {
 add_action( 'after_setup_theme', 'wp_blank_setup' );
 
 
-function create_my_account_page() {
-    // Check if the page already exists
-    $account_page = get_page_by_title('My Account');
-
-    // If the page doesn't exist, create it
-    if (!$account_page) {
-        $page_id = wp_insert_post(array(
-            'post_title'     => 'My Account',
-            'post_content'   => '[woocommerce_my_account]',
-            'post_status'    => 'publish',
-            'post_type'      => 'page',
-        ));
-
-        // Set the newly created page as the WooCommerce My Account page
-        if ($page_id && !is_wp_error($page_id)) {
-            update_option('woocommerce_myaccount_page_id', $page_id);
-        }
-    }
-}
-add_action('init', 'create_my_account_page');
 
 
 /**
@@ -147,39 +126,68 @@ function handle_contact_form() {
 VALUES ('$name', '$mobile', '$email', '$description');
 ";
 
+        // Check if phone number exists
+        $phoneCheckUrl = "https://app.didar.me/api/Contact/GetByPhoneNumber?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
+        $phoneData = array("MobilePhone" => $mobile);
+        $ch_phone = curl_init($phoneCheckUrl);
+        curl_setopt($ch_phone, CURLOPT_POST, 1);
+        curl_setopt($ch_phone, CURLOPT_POSTFIELDS, json_encode($phoneData));
+        curl_setopt($ch_phone, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch_phone, CURLOPT_RETURNTRANSFER, true);
+        $phoneResponse = curl_exec($ch_phone);
+        curl_close($ch_phone);
+
+        $contactId = "";
+        $createNewContact = true;
+
+        if ($phoneResponse === false) {
+            $error_message = "Phone Check API error: " . curl_error($ch_phone);
+        } else {
+            $phoneData = json_decode($phoneResponse, true);
+            if (!empty($phoneData['Response'])) {
+                $contactId = $phoneData['Response'][0]['Id'];
+                $createNewContact = false;
+            }
+        }
 
         if (mysqli_query($dbConnection, $sql)) {
             if (mysqli_affected_rows($dbConnection) > 0) {
+                if ($createNewContact) {
+                    // Create new contact
+                    $apiUrl = "https://app.didar.me/api/contact/save?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
+                    $data = array(
+                        "Contact" => array(
+                            "VisibilityType" => "All",
+                            "LastName" => $name,
+                            "WorkPhone" => $mobile,
+                            "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
+                            "Email" => $email,
+                            "Type" => "Person"
+                        )
+                    );
+                    $ch_contact = curl_init($apiUrl);
+                    curl_setopt($ch_contact, CURLOPT_POST, 1);
+                    curl_setopt($ch_contact, CURLOPT_POSTFIELDS, json_encode($data));
+                    curl_setopt($ch_contact, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                    curl_setopt($ch_contact, CURLOPT_RETURNTRANSFER, true);
+                    $response = curl_exec($ch_contact);
+                    curl_close($ch_contact);
 
-                $apiUrl = "https://app.didar.me/api/contact/save?ApiKey=xhir6muqm6jb4b1kqsimg3u1akj05zu0";
-                $data = array(
-                    "Contact" => array(
-                        "VisibilityType" => "All",
-                        "LastName" => $name,
-                        "WorkPhone" => $mobile,
-                        "OwnerId" => "0bdc5d93-22ef-4c51-b1b6-7f8bf9c1f028",
-                        "Email" => $email,
-                        "Type" => "Person"
-                    )
-                );
-                $ch_contact = curl_init($apiUrl);
-                curl_setopt($ch_contact, CURLOPT_POST, 1);
-                curl_setopt($ch_contact, CURLOPT_POSTFIELDS, json_encode($data));
-                curl_setopt($ch_contact, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-                curl_setopt($ch_contact, CURLOPT_RETURNTRANSFER, true);
-                $response = curl_exec($ch_contact);
+                    if ($response === false) {
+                        $error_message = "Contact API error: " . curl_error($ch_contact);
+                    } else {
+                        $contactData = json_decode($response, true);
+                        $contactId = $contactData['Response']['Id'];
+                    }
+                }
 
-                if ($response === false) {
-                    echo "Contact API error: " . curl_error($ch_contact);
-                } else {
-                    $contactData = json_decode($response, true);
-                    $contactId = $contactData['Response']['Id'];
-                    // DEAL
+                if (!empty($contactId)) {
+                    // Create deal
                     $dealData = array(
                         "Deal" => array(
                             "Title" => ' معامله با ' . $name,
                             "PipelineStageId" => "f88f8f5f-7ec6-4613-8b32-ce6da62a9403",
-                            "OwnerId" => "0bdc5d93-22ef-4c51-b1b6-7f8bf9c1f028",
+                            "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
                             "PersonId" => $contactId,
                             "VisibilityType" => "OwnerGroup"
                         )
@@ -197,12 +205,13 @@ VALUES ('$name', '$mobile', '$email', '$description');
                         $dealResponse = json_decode($response2, true);
                         $dealId = $dealResponse['Response']['Id'];
 
+                        // Create note
                         $noteData = array(
                             "Activity" => array(
                                 "ActivityTypeId" => "00000000-0000-0000-0000-000000000000",
                                 "Title" => "گوگل",
                                 "Duration" => 0,
-                                "OwnerId" => "0bdc5d93-22ef-4c51-b1b6-7f8bf9c1f028",
+                                "OwnerId" => "de0b42a6-dfbb-4570-9136-51bdc4a2f482",
                                 "ResultNote" => "توضیحات : " . $description,
                                 "Note" => "",
                                 "IsDone" => true,
@@ -225,7 +234,7 @@ VALUES ('$name', '$mobile', '$email', '$description');
                         $response3 = curl_exec($ch_note);
                         curl_close($ch_note);
                     }
-                    curl_close($ch_contact);
+                    curl_close($ch_deal);
                 }
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($dbConnection);

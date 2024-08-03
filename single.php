@@ -5,9 +5,7 @@
         <div class="row">
             <section>
                 <div class="fixed-signup">
-                    <a href="https://wa.me/+98960936053">
-                        <img src="<?php echo SALES_ACADEMY; ?>/assets/img/whatsapp-icon.png">
-                        مشاوره رایگان در واتساپ</a>
+                    <a href="https://didarsalesdemy.com/courses/form/">فرم مشاوره رایگان</a>
                 </div>
             </section>
             <div class="col-lg-2 col-md-2 col-sm-12 sidebar">
