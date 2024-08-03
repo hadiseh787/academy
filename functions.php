@@ -325,3 +325,14 @@ function custom_toc_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('custom_toc', 'custom_toc_shortcode');
+
+//login woo
+function custom_registration_redirect($redirect_to) {
+    // Check if the redirect_to URL is set in the registration form
+    if (isset($_REQUEST['redirect_to']) && !empty($_REQUEST['redirect_to'])) {
+        $redirect_to = $_REQUEST['redirect_to'];
+    }
+    return $redirect_to;
+}
+add_filter('woocommerce_registration_redirect', 'custom_registration_redirect');
+
