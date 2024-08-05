@@ -3061,6 +3061,41 @@ a.comment-reply-link {
     direction: rtl !important;
 }
 
+
+/*mini dore*/
+.mini-course {
+    margin: 100px 50px 0 10px;
+}
+
+.mini-course h2{
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 20px;
+    color: #515151;
+}
+
+.mini-course h3{
+    font-size: 28px;
+    line-height: 48px;
+    margin: 20px 0;
+    color: #515151;
+}
+.mini-course .text{
+    line-height: 34px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+.mini-course .detail-box{
+    background-color: #F7F7F7;
+    padding: 24px 12px;
+    margin-top: 70px;
+}
 /*----Media Query----*/
 
 @media (max-width: 1200px) {
