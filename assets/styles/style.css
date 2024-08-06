@@ -3071,23 +3071,42 @@ a.comment-reply-link {
     font-size: 32px;
     line-height: 48px;
     margin-bottom: 20px;
-    color: #515151;
+    color: #454545;
 }
 
 .mini-course h3{
     font-size: 28px;
     line-height: 48px;
     margin: 20px 0;
-    color: #515151;
+    color: #454545;
 }
 .mini-course .text{
     line-height: 34px;
     font-size: 18px;
     margin-top: 20px;
+    color: #696969;
 }
 
+.mini-course .third-section .video{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+    border-radius: 3px;
+    margin: 15px 0;
+    padding: 15px 10px;
+}
 
-
+.mini-course .third-section .video .number{
+    background: #303466;
+    text-align: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    color: #ffffff;
+}
 
 
 
@@ -3095,6 +3114,55 @@ a.comment-reply-link {
     background-color: #F7F7F7;
     padding: 24px 12px;
     margin-top: 70px;
+    width: 90%;
+}
+
+.mini-course .detail-box .line{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 14px 0;
+    align-items: flex-end;
+    padding: 6px 10px 8px 10px;
+    border-radius: 6px;
+    color: #363636;
+    font-size: 16px;
+}
+
+.mini-course .detail-box .line img{
+    position: relative;
+    top: 7px;
+    margin-left: 6px;
+    scale: 1.2;
+}
+.mini-course .detail-box .line img.vid{
+    top: 5px;
+}
+.mini-course .detail-box .line span{
+    color: #626262;
+}
+
+.mini-course .detail-box .signup a{
+    width: 200px;
+    color: #ffffff;
+    line-height: 54px;
+    height: 60px;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    z-index: 10;
+    display: block;
+    margin: 28px auto 0;
+}
+
+.mini-course .detail-box .signup a:before{
+    content: url('../img/first-b-btn.svg');
+    position: absolute;
+    right: -22px;
+    top: -5px;
+    z-index: -1;
 }
 /*----Media Query----*/
 

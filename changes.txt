@@ -1,3 +1,4 @@
 1- changing function.php
 2. add page.php
 3. add mini-course.php
+4. add image folder
