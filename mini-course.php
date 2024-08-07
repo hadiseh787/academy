@@ -67,6 +67,47 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                         </div>
                         <div class="sixth-section">
                             <h3>سوالات متداول</h3>
+
+                            <div class="accordion">
+                                <div class="acc-btn">
+                                    <span class="accordion-item__title">
+                                   آیا این دوره نیاز به تجربه‌ی پیشین در زمینه فروش دارد؟
+                                     </span>
+                                </div>
+                                <div class="acc-content">
+                                    <p>
+                                        بله، شرکت در دوره مدیر فروش حرفه‌ای حداقل سه سال فعالیت در زمینه فروش یا مدرک کارشناس
+                                        فروش حرفه‌ای آکادمی دیدار نیاز دارد.
+
+                                    </p>
+                                </div>
+
+                                <div class="acc-btn">
+                                    <span class="accordion-item__title">
+                                       آیا نحوه برگزاری دوره مدیر فروش به صورت حضوری است؟
+                                     </span>
+                                </div>
+
+                                <div class="acc-content">
+                                    <p>
+                                        بله، دوره مدیر فروش به صورت حضوری برنامه‌ریزی شده تا اساتید و شرکت‌کنندگان تعامل سازنده
+                                        با یکدیگر داشته باشند و بهره‌وری به بالاترین میزان ممکن برسد.
+                                    </p>
+                                </div>
+
+                                <div class="acc-btn">
+                            <span class="accordion-item__title">
+                                آیا پس از پایان دوره گواهی صادر می‌شود؟
+                            </span>
+                                </div>
+
+                                <div class="acc-content">
+                                    <p>
+                                        بله، آکادمی فروش دیدار به عنوان یک آموزشگاه فنی حرفه‌ای و موسسه تخصصی در زمینه فروش برای
+                                        شرکت‌کنندگان مدرک صادر می‌کند.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         <div class="seventh-section">
                             <?php comments_template(); ?>

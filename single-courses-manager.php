@@ -1111,8 +1111,6 @@
                         سوالات متداول
                     </h2>
                     <div class="accordion">
-
-
                         <div class="acc-btn">
                                     <span class="accordion-item__title">
                                    آیا این دوره نیاز به تجربه‌ی پیشین در زمینه فروش دارد؟

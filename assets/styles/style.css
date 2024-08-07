@@ -3067,27 +3067,28 @@ a.comment-reply-link {
     margin: 100px 50px 0 10px;
 }
 
-.mini-course h2{
+.mini-course h2 {
     font-size: 32px;
     line-height: 48px;
     margin-bottom: 20px;
     color: #454545;
 }
 
-.mini-course h3{
+.mini-course h3 {
     font-size: 28px;
     line-height: 48px;
     margin: 20px 0;
     color: #454545;
 }
-.mini-course .text{
+
+.mini-course .text {
     line-height: 34px;
     font-size: 18px;
     margin-top: 20px;
     color: #696969;
 }
 
-.mini-course .third-section .video{
+.mini-course .third-section .video {
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -3098,7 +3099,7 @@ a.comment-reply-link {
     padding: 15px 10px;
 }
 
-.mini-course .third-section .video .number{
+.mini-course .third-section .video .number {
     background: #303466;
     text-align: center;
     border-radius: 50%;
@@ -3108,16 +3109,47 @@ a.comment-reply-link {
     color: #ffffff;
 }
 
+.mini-course .sixth-section h3 {
+    color: #303466 !important;
+    margin: 30px 15px 0 10px;
+    padding-top: 20px;
+}
 
+.mini-course .sixth-section {
+    background-color: #F7F7F7;
+    border-radius: 4px;
+    padding-bottom: 20px;
+}
 
-.mini-course .detail-box{
+.mini-course .sixth-section .accordion {
+    margin: 0;
+    border: 0;
+}
+
+.mini-course .sixth-section .acc-btn {
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 15px 15px;
+}
+
+.mini-course .sixth-section .acc-content {
+    background-color: #ffffff;
+    margin: -33px 15px 0;
+}
+
+.mini-course .sixth-section div.acc-btn:first-child,
+.mini-course .sixth-section div.acc-btn {
+    border: 0;
+}
+
+.mini-course .detail-box {
     background-color: #F7F7F7;
     padding: 24px 12px;
     margin-top: 70px;
     width: 90%;
 }
 
-.mini-course .detail-box .line{
+.mini-course .detail-box .line {
     background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
@@ -3131,20 +3163,22 @@ a.comment-reply-link {
     font-size: 16px;
 }
 
-.mini-course .detail-box .line img{
+.mini-course .detail-box .line img {
     position: relative;
     top: 7px;
     margin-left: 6px;
     scale: 1.2;
 }
-.mini-course .detail-box .line img.vid{
+
+.mini-course .detail-box .line img.vid {
     top: 5px;
 }
-.mini-course .detail-box .line span{
+
+.mini-course .detail-box .line span {
     color: #626262;
 }
 
-.mini-course .detail-box .signup a{
+.mini-course .detail-box .signup a {
     width: 200px;
     color: #ffffff;
     line-height: 54px;
@@ -3157,13 +3191,14 @@ a.comment-reply-link {
     margin: 28px auto 0;
 }
 
-.mini-course .detail-box .signup a:before{
+.mini-course .detail-box .signup a:before {
     content: url('../img/first-b-btn.svg');
     position: absolute;
     right: -22px;
     top: -5px;
     z-index: -1;
 }
+
 /*----Media Query----*/
 
 @media (max-width: 1200px) {
