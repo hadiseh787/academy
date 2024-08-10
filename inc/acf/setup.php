@@ -1371,6 +1371,51 @@ add_action('init', function () {
             'description' => '',
         ));
 
+
+        acf_add_local_field_group(array(
+            'key' => 'group_66b764a47a5b0',
+            'title' => 'جزئیات مینی دوره',
+            'fields' => array(
+                array(
+                    'key' => 'field_66b764bb1bb3d',
+                    'label' => 'ایفریم',
+                    'name' => 'iframe',
+                    'type' => 'textarea',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'maxlength' => '',
+                    'rows' => '',
+                    'new_lines' => '',
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_type',
+                        'operator' => '==',
+                        'value' => 'mini-courses',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => 1,
+            'description' => '',
+        ));
+
+
     endif;
 });
 

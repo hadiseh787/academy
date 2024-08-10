@@ -3199,13 +3199,13 @@ a.comment-reply-link {
     z-index: -1;
 }
 
-.mini-course .share .title{
+.mini-course .share .title {
     margin-top: 41px;
     font-size: 18px;
 }
 
 
-.mini-course .share-item{
+.mini-course .share-item {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-end;
@@ -3213,6 +3213,23 @@ a.comment-reply-link {
     width: 88%;
     margin: 20px 0;
 }
+
+
+/*single mini courses*/
+.single-mini-course {
+    margin-top: 100px;
+}
+
+.single-mini-course a {
+    color: #303466;
+    font-size: 12px;
+}
+
+.single-mini-course .video {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
 /*----Media Query----*/
 
 @media (max-width: 1200px) {
