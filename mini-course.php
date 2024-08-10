@@ -15,8 +15,8 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
     <?php if (is_user_logged_in()) { ?>
         <section class="mini-course">
             <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-lg-9 col-md-9 col-sm-12">
+                <div class="row justify-content-center reverse">
+                    <div class="col-lg-9 col-md-12 col-sm-12">
                         <div class="first-section">
                             <h2>
                                 <?php echo the_title() ?>
@@ -42,7 +42,7 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                     <?php while (have_rows('repeater')): the_row();
                                         $number = get_sub_field('number');
                                         $title = get_sub_field('title');
-                                        $iframe = get_sub_field('iframe');
+                                        $link = get_sub_field('link');
                                         ?>
                                         <div class="video">
                                             <div>
@@ -61,55 +61,73 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                         </div>
                         <div class="fourth-section">
                             <h3>این دوره به شما...</h3>
+                            <div class="row">
+                                <div class="col-lg-7 col-sm-12 col-12">
+                                    <div class="text">
+                                        <?php echo the_field("result_text"); ?>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-sm-12 col-12">
+                                    <div class="text">
+                                        <img src="<?php echo the_field("result_img"); ?>">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="fifth-section">
                             <h3>از چه کسانی یاد میگیرید؟</h3>
+                            <div class="swiper swiper-seven">
+                                <div class="swiper-wrapper">
+                                    <?php if (have_rows('teachers')): ?>
+                                        <?php while (have_rows('teachers')): the_row();
+                                            $name = get_sub_field('name');
+                                            $img = get_sub_field('img');
+                                            $link = get_sub_field('link');
+                                            $desc = get_sub_field('desc');
+                                            ?>
+                                            <div class="swiper-slide">
+                                                <div class="teacher">
+                                                    <a href="<?php echo $link ?>" target="_blank">
+                                                        <img src="<?php echo $img ?>">
+                                                        <div class="name">
+                                                            <?php echo $name ?>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <?php echo $desc ?>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next seven"></div>
+                            <div class="swiper-button-prev seven"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
                         <div class="sixth-section">
                             <h3>سوالات متداول</h3>
 
                             <div class="accordion">
-                                <div class="acc-btn">
-                                    <span class="accordion-item__title">
-                                   آیا این دوره نیاز به تجربه‌ی پیشین در زمینه فروش دارد؟
-                                     </span>
-                                </div>
-                                <div class="acc-content">
-                                    <p>
-                                        بله، شرکت در دوره مدیر فروش حرفه‌ای حداقل سه سال فعالیت در زمینه فروش یا مدرک
-                                        کارشناس
-                                        فروش حرفه‌ای آکادمی دیدار نیاز دارد.
+                                <?php if (have_rows('faq')): ?>
+                                    <?php while (have_rows('faq')): the_row();
+                                        $question = get_sub_field('question');
+                                        $answer = get_sub_field('answer');
+                                        ?>
+                                        <div class="acc-btn">
+                                            <span class="accordion-item__title">
+                                                  <?php echo $question ?>
+                                             </span>
+                                        </div>
+                                        <div class="acc-content">
+                                            <p>
+                                                <?php echo $answer ?>
+                                            </p>
+                                        </div>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
 
-                                    </p>
-                                </div>
-
-                                <div class="acc-btn">
-                                    <span class="accordion-item__title">
-                                       آیا نحوه برگزاری دوره مدیر فروش به صورت حضوری است؟
-                                     </span>
-                                </div>
-
-                                <div class="acc-content">
-                                    <p>
-                                        بله، دوره مدیر فروش به صورت حضوری برنامه‌ریزی شده تا اساتید و شرکت‌کنندگان تعامل
-                                        سازنده
-                                        با یکدیگر داشته باشند و بهره‌وری به بالاترین میزان ممکن برسد.
-                                    </p>
-                                </div>
-
-                                <div class="acc-btn">
-                            <span class="accordion-item__title">
-                                آیا پس از پایان دوره گواهی صادر می‌شود؟
-                            </span>
-                                </div>
-
-                                <div class="acc-content">
-                                    <p>
-                                        بله، آکادمی فروش دیدار به عنوان یک آموزشگاه فنی حرفه‌ای و موسسه تخصصی در زمینه
-                                        فروش برای
-                                        شرکت‌کنندگان مدرک صادر می‌کند.
-                                    </p>
-                                </div>
                             </div>
                         </div>
                         <div class="seventh-section">
@@ -117,7 +135,7 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-9 col-sm-12">
+                    <div class="col-lg-3 col-md-12 col-sm-12">
                         <div class="detail-box">
                             <div class="line">
                                 <div>

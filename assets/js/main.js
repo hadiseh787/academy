@@ -191,6 +191,29 @@ $(document).ready(function () {
             prevEl: '.swiper-button-next.five',
         },
     });
+
+    var swiperseven = new Swiper('.swiper-seven', {
+        spaceBetween: 0,
+        slidesPerView: 3,
+        direction: 'horizontal',
+        loop: false,
+
+        breakpoints: {
+            992: {
+                spaceBetween: 24,
+                slidesPerView: 3,
+            },
+            576: {
+                spaceBetween: 12,
+                slidesPerView: 2.5,
+            }
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-prev.seven',
+            prevEl: '.swiper-button-next.seven',
+        },
+    });
     $(".accordianNav h3.dropArrow").click(function() {
         $("h3.dropArrow").removeClass("active");
         $(".accordianNav ul ul").slideUp();
