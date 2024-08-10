@@ -3199,6 +3199,20 @@ a.comment-reply-link {
     z-index: -1;
 }
 
+.mini-course .share .title{
+    margin-top: 41px;
+    font-size: 18px;
+}
+
+
+.mini-course .share-item{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-between;
+    width: 88%;
+    margin: 20px 0;
+}
 /*----Media Query----*/
 
 @media (max-width: 1200px) {

@@ -76,7 +76,8 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                 </div>
                                 <div class="acc-content">
                                     <p>
-                                        بله، شرکت در دوره مدیر فروش حرفه‌ای حداقل سه سال فعالیت در زمینه فروش یا مدرک کارشناس
+                                        بله، شرکت در دوره مدیر فروش حرفه‌ای حداقل سه سال فعالیت در زمینه فروش یا مدرک
+                                        کارشناس
                                         فروش حرفه‌ای آکادمی دیدار نیاز دارد.
 
                                     </p>
@@ -90,7 +91,8 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
 
                                 <div class="acc-content">
                                     <p>
-                                        بله، دوره مدیر فروش به صورت حضوری برنامه‌ریزی شده تا اساتید و شرکت‌کنندگان تعامل سازنده
+                                        بله، دوره مدیر فروش به صورت حضوری برنامه‌ریزی شده تا اساتید و شرکت‌کنندگان تعامل
+                                        سازنده
                                         با یکدیگر داشته باشند و بهره‌وری به بالاترین میزان ممکن برسد.
                                     </p>
                                 </div>
@@ -103,7 +105,8 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
 
                                 <div class="acc-content">
                                     <p>
-                                        بله، آکادمی فروش دیدار به عنوان یک آموزشگاه فنی حرفه‌ای و موسسه تخصصی در زمینه فروش برای
+                                        بله، آکادمی فروش دیدار به عنوان یک آموزشگاه فنی حرفه‌ای و موسسه تخصصی در زمینه
+                                        فروش برای
                                         شرکت‌کنندگان مدرک صادر می‌کند.
                                     </p>
                                 </div>
@@ -162,7 +165,21 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                 این دوره را معرفی کنید:
                             </div>
                             <div class="share-item">
-
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/twitter.svg">
+                                </a>
                             </div>
 
                         </div>
