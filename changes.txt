@@ -2,3 +2,5 @@
 2. add page.php
 3. add mini-course.php
 4. add image folder
+5. add swiper to main.js
+6. add single-mini-course.php
