@@ -3109,6 +3109,12 @@ a.comment-reply-link {
     color: #ffffff;
 }
 
+.mini-course .third-section .video div,
+.mini-course .third-section .video img {
+    position: relative;
+    top: 8px;
+}
+
 .mini-course .fourth-section .image img {
     display: block;
     text-align: center;
@@ -3235,13 +3241,15 @@ a.comment-reply-link {
     z-index: -1;
 }
 
-.mini-course .share .title {
+.mini-course .share .title,
+.single-mini-course .share .title {
     margin-top: 41px;
     font-size: 18px;
 }
 
 
-.mini-course .share-item {
+.mini-course .share-item,
+.single-mini-course .share-item {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-end;
@@ -3264,6 +3272,22 @@ a.comment-reply-link {
 .single-mini-course .video {
     max-width: 900px;
     margin: 30px auto;
+}
+
+.single-mini-course .share {
+    margin-top: 105px;
+}
+
+.single-mini-course h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 34px;
+}
+
+.single-mini-course .text p {
+    font-size: 18px;
+    line-height: 34px;
+    margin-top: 20px;
 }
 
 /*----Media Query----*/
@@ -3657,6 +3681,11 @@ a.comment-reply-link {
 
     .mini-course .share-item {
         width: 71%;
+    }
+
+    .mini-course .third-section .video div,
+    .mini-course .third-section .video img {
+        position: unset;
     }
 
     .mini-course .third-section .video {

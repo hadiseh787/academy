@@ -9,6 +9,8 @@ get_header();
 $current_url = get_permalink();
 $login_url = wc_get_page_permalink('myaccount');
 $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
+$url = urlencode(get_the_permalink());
+$title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
 ?>
 
 <main>
@@ -80,24 +82,41 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                             <div class="title">
                                 این دوره را معرفی کنید:
                             </div>
+
                             <div class="share-item">
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg">
+                                <a href="#" onclick="copyToClipboard('<?php echo $url; ?>'); return false;">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg" alt="Copy">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg">
+
+                                <a href="https://telegram.me/share/url?url=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg"
+                                         alt="Telegram">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg">
+
+                                <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg"
+                                         alt="WhatsApp">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg">
-                                </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/twitter.svg">
+
+                                <a href="https://linkedin.com/shareArticle?url=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg"
+                                         alt="LinkedIn">
                                 </a>
                             </div>
 
+                            <script>
+                                // Function to copy text to clipboard
+                                function copyToClipboard(text) {
+                                    const tempInput = document.createElement("input");
+                                    tempInput.style.position = "absolute";
+                                    tempInput.style.left = "-9999px";
+                                    tempInput.value = decodeURIComponent(text);
+                                    document.body.appendChild(tempInput);
+                                    tempInput.select();
+                                    document.execCommand("copy");
+                                    document.body.removeChild(tempInput);
+                                }
+                            </script>
                         </div>
                         <div class="third-section">
                             <h3>
@@ -117,8 +136,10 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                                 </span>
                                                 <?php echo $title ?>
                                             </div>
+                                            <a href="<?php echo $link ?>">
+                                                <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/button.svg">
+                                            </a>
 
-                                            <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/button.svg">
 
                                         </div>
                                     <?php endwhile; ?>
@@ -250,20 +271,23 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                 این دوره را معرفی کنید:
                             </div>
                             <div class="share-item">
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg">
+                                <a href="#" onclick="copyToClipboard('<?php echo $url; ?>'); return false;">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg" alt="Copy">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg">
+
+                                <a href="https://telegram.me/share/url?url=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg"
+                                         alt="Telegram">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg">
+
+                                <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg"
+                                         alt="WhatsApp">
                                 </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg">
-                                </a>
-                                <a href="">
-                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/twitter.svg">
+
+                                <a href="https://linkedin.com/shareArticle?url=<?php echo $url; ?>" target="_blank">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg"
+                                         alt="LinkedIn">
                                 </a>
                             </div>
 
