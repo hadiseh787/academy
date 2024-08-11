@@ -122,7 +122,6 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                         <h3>
                             سر فصل های دوره
                         </h3>
-                        <div class="text">
                             <?php if (have_rows('repeater')): ?>
                                 <?php while (have_rows('repeater')): the_row();
                                     $number = get_sub_field('number');
@@ -151,7 +150,6 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                                     </div>
                                 <?php endwhile; ?>
                             <?php endif; ?>
-                        </div>
                     </div>
                     <div class="fourth-section">
 

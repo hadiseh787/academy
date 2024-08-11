@@ -1,6 +1,11 @@
-
 <?php get_header(); ?>
-
+<?php
+$current_url = get_permalink();
+$login_url = wc_get_page_permalink('myaccount');
+$login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
+$url = urlencode(get_the_permalink());
+$title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
+?>
 
 <main>
     <section class="single-mini-course">
@@ -9,6 +14,30 @@
                 <div class="col-lg-3 col-md-12 col-sm-12">
                     <a href="">بازگشت به صفحه مینی دوره</a>
                     <h3>سرفصل‌های دوره</h3>
+                    <div class="mini-course">
+                        <div class="third-section">
+                            <?php if (have_rows('repeater')): ?>
+                                <?php while (have_rows('repeater')): the_row();
+                                    $number = get_sub_field('number');
+                                    $title = get_sub_field('title');
+                                    $link = get_sub_field('link');
+                                    ?>
+                                    <div class="video">
+                                        <div>
+                                            <a href="<?php echo $link ?>">
+                                                <span class="number">
+                                                      <?php echo $number ?>
+                                                </span>
+                                            <?php echo $title ?>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -22,7 +51,7 @@
                     </div>
 
                     <div class="text">
-                        <?php  the_content() ?>
+                        <?php the_content() ?>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12">
