@@ -3109,6 +3109,32 @@ a.comment-reply-link {
     color: #ffffff;
 }
 
+.mini-course .fourth-section .image img {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.mini-course .fifth-section .teacher {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.mini-course .fifth-section .teacher .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000 !important;
+    margin: 5px 0;
+}
+
+.mini-course .fifth-section .teacher .desc {
+    font-size: 16px;
+    color: #000000 !important;
+    width: 60%;
+    margin: auto;
+    line-height: 34px;
+}
+
 .mini-course .sixth-section h3 {
     color: #303466 !important;
     margin: 30px 15px 0 10px;
@@ -3147,6 +3173,16 @@ a.comment-reply-link {
     padding: 24px 12px;
     margin-top: 70px;
     width: 90%;
+}
+
+.mini-course .detail-box.desktop,
+.mini-course .share.desktop {
+    display: block;
+}
+
+.mini-course .detail-box.mobile,
+.mini-course .share.mobile {
+    display: none;
 }
 
 .mini-course .detail-box .line {
@@ -3376,6 +3412,18 @@ a.comment-reply-link {
     .about h3:before, .about h3:after {
         width: 10%;
     }
+
+    .row.justify-content-center.reverse {
+        flex-direction: column-reverse;
+    }
+
+    .mini-course .detail-box {
+        width: 100%;
+    }
+
+    .mini-course {
+        margin: 100px 0 50px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -3594,6 +3642,45 @@ a.comment-reply-link {
 
     .content {
         padding: 6px 10px;
+    }
+
+    .mini-course .detail-box.mobile,
+    .mini-course .share.mobile {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .mini-course .detail-box.desktop,
+    .mini-course .share.desktop {
+        display: none;
+    }
+
+    .mini-course .share-item {
+        width: 71%;
+    }
+
+    .mini-course .third-section .video {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-content: baseline;
+    }
+
+    .mini-course .third-section .video img {
+        margin-top: 17px;
+    }
+
+    .mini-course .swiper-button-next.seven,
+    .mini-course .swiper-button-prev.seven {
+        display: none;
+    }
+
+    .mini-course h2 {
+        font-size: 26px;
+    }
+
+    .mini-course .text {
+        font-size: 16px;
     }
 }
 

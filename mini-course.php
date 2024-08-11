@@ -33,6 +33,72 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                                 <?php echo the_field("text"); ?>
                             </div>
                         </div>
+
+                        <div class="detail-box mobile">
+                            <div class="line">
+                                <div>
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/play.svg"><span>نوع دوره</span>
+                                </div>
+                                <?php echo the_field('course_type'); ?>
+                            </div>
+
+                            <div class="line">
+                                <div>
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/document.svg"><span>پیش‌نیاز</span>
+                                </div>
+                                <?php echo the_field('prerequisite'); ?>
+                            </div>
+
+                            <div class="line">
+                                <div>
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/time.svg"><span>مدت زمان</span>
+                                </div>
+                                <?php echo the_field('time'); ?>
+                            </div>
+
+                            <div class="line">
+                                <div>
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/video.svg"
+                                         class="vid"><span>تعداد ویدیو</span>
+                                </div>
+                                <?php echo the_field('count'); ?>
+                            </div>
+
+                            <div class="line">
+                                <div>
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/price.svg"><span>قیمت</span>
+                                </div>
+                                <?php echo the_field('price'); ?>
+                            </div>
+
+                            <div class="signup">
+                                <a href="https://didarsalesdemy.com/courses/form/">ثبت‌نام در دوره</a>
+                            </div>
+                        </div>
+
+                        <div class="share mobile">
+                            <div class="title">
+                                این دوره را معرفی کنید:
+                            </div>
+                            <div class="share-item">
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/copy.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/telegram.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/whatsapp.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/linkedin.svg">
+                                </a>
+                                <a href="">
+                                    <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/twitter.svg">
+                                </a>
+                            </div>
+
+                        </div>
                         <div class="third-section">
                             <h3>
                                 سر فصل های دوره
@@ -60,15 +126,16 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                             </div>
                         </div>
                         <div class="fourth-section">
-                            <h3>این دوره به شما...</h3>
-                            <div class="row">
+
+                            <div class="row align-items-center">
                                 <div class="col-lg-7 col-sm-12 col-12">
+                                    <h3>این دوره به شما...</h3>
                                     <div class="text">
                                         <?php echo the_field("result_text"); ?>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-sm-12 col-12">
-                                    <div class="text">
+                                    <div class="image">
                                         <img src="<?php echo the_field("result_img"); ?>">
                                     </div>
                                 </div>
@@ -136,7 +203,7 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                     </div>
 
                     <div class="col-lg-3 col-md-12 col-sm-12">
-                        <div class="detail-box">
+                        <div class="detail-box desktop">
                             <div class="line">
                                 <div>
                                     <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/play.svg"><span>نوع دوره</span>
@@ -178,7 +245,7 @@ $login_url = add_query_arg('redirect_to', urlencode($current_url), $login_url);
                             </div>
                         </div>
 
-                        <div class="share">
+                        <div class="share desktop">
                             <div class="title">
                                 این دوره را معرفی کنید:
                             </div>

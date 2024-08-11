@@ -206,6 +206,14 @@ $(document).ready(function () {
             576: {
                 spaceBetween: 12,
                 slidesPerView: 2.5,
+            },
+            480: {
+                spaceBetween:0,
+                slidesPerView: 1.5,
+            },
+            320: {
+                spaceBetween: 0,
+                slidesPerView: 1,
             }
         },
 
