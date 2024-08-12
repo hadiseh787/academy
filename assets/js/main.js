@@ -154,21 +154,6 @@ $(document).ready(function () {
         },
     });
 
-    var swipersix = new Swiper('.swiper-six', {
-        loop:false,
-        breakpoints: {
-            992: {
-                spaceBetween: 24,
-                slidesPerView:4,
-            }
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-prev.six',
-            prevEl: '.swiper-button-next.six',
-        },
-    });
-
     var swiperFive = new Swiper('.swiper-five', {
         spaceBetween: 0,
         slidesPerView: 1,
@@ -222,6 +207,7 @@ $(document).ready(function () {
             prevEl: '.swiper-button-next.seven',
         },
     });
+
     $(".accordianNav h3.dropArrow").click(function() {
         $("h3.dropArrow").removeClass("active");
         $(".accordianNav ul ul").slideUp();
@@ -275,6 +261,5 @@ $(document).ready(function () {
         $('.toc-container').toggleClass("open");
 
     });
-
 
 });

@@ -122,34 +122,36 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                         <h3>
                             سر فصل های دوره
                         </h3>
-                            <?php if (have_rows('repeater')): ?>
-                                <?php while (have_rows('repeater')): the_row();
-                                    $number = get_sub_field('number');
-                                    $title = get_sub_field('title');
-                                    $link = get_sub_field('link');
-                                    ?>
-                                    <div class="video">
-                                        <div>
-                                                <span class="number">
-                                                      <?php echo $number ?>
-                                                </span>
-                                            <?php echo $title ?>
-                                        </div>
+                        <?php if (have_rows('repeater')): ?>
+                            <?php while (have_rows('repeater')): the_row();
+                                $number = get_sub_field('number');
+                                $title = get_sub_field('title');
+                                $link = get_sub_field('link');
+                                ?>
+                                <div class="video">
+                                    <div>
+                                         <span class="number">
+                                               <?php echo $number ?>
+                                         </span>
+                                        <span class="title">
+                                                <?php echo $title ?>
+                                         </span>
+                                    </div>
 
-                                        <?php if (is_user_logged_in()) { ?>
-                                            <a href="<?php echo $link ?>">
-                                                <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/button.svg">
-                                            </a>
-                                        <?php } else { ?>
+                                    <?php if (is_user_logged_in()) { ?>
+                                        <a href="<?php echo $link ?>">
+                                            <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/button.svg">
+                                        </a>
+                                    <?php } else { ?>
                                         <a href="<?php echo $login_url; ?>">
                                             <img src="<?php echo SALES_ACADEMY; ?>/assets/img/mini-course/lock-btn.svg">
                                         </a>
-                                        <?php } ?>
+                                    <?php } ?>
 
 
-                                    </div>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
                     <div class="fourth-section">
 
@@ -180,7 +182,7 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                                         ?>
                                         <div class="swiper-slide">
                                             <div class="teacher">
-                                                <a href="<?php echo $link ?>" target="_blank">
+                                                <a target="_blank">
                                                     <img src="<?php echo $img ?>">
                                                     <div class="name">
                                                         <?php echo $name ?>
@@ -295,31 +297,11 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                                      alt="LinkedIn">
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="home intro">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-9 col-sm-12">
-                    <div class="box">
-                        <h2>برای دیدن این صفحه ثبت نام کن!</h2>
-                        <div class="img">
-                            <img src="<?php echo SALES_ACADEMY; ?>/assets/img/banner.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-12">
-                    <a href="<?php echo $login_url; ?>">ثبت نام</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
 </main>
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>

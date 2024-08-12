@@ -3107,6 +3107,12 @@ a.comment-reply-link {
     height: 30px;
     display: inline-block;
     color: #ffffff;
+    line-height: 34px;
+    margin-left: 5px;
+}
+
+.mini-course .third-section .video .title {
+    font-size: 16px;
 }
 
 .mini-course .third-section .video div,
@@ -3143,12 +3149,11 @@ a.comment-reply-link {
 
 .mini-course .sixth-section h3 {
     color: #303466 !important;
-    margin: 30px 15px 0 10px;
+    margin: 30px 0px 0 10px;
     padding-top: 20px;
 }
 
 .mini-course .sixth-section {
-    background-color: #F7F7F7;
     border-radius: 4px;
     padding-bottom: 20px;
 }
@@ -3160,18 +3165,22 @@ a.comment-reply-link {
 
 .mini-course .sixth-section .acc-btn {
     border-radius: 5px;
-    background-color: #ffffff;
-    margin: 15px 15px;
+    background-color: #F7F7F7;
+    margin: 15px 0;
 }
 
 .mini-course .sixth-section .acc-content {
-    background-color: #ffffff;
-    margin: -33px 15px 0;
+    background-color: #F7F7F7;
+    margin: -33px 0 0;
 }
 
 .mini-course .sixth-section div.acc-btn:first-child,
 .mini-course .sixth-section div.acc-btn {
     border: 0;
+}
+
+.mini-course .seventh-section .courses {
+    background-color: transparent;
 }
 
 .mini-course .detail-box {
@@ -3261,7 +3270,8 @@ a.comment-reply-link {
 
 /*single mini courses*/
 .single-mini-course {
-    margin-top: 100px;
+    margin: 100px 0 50px 0;
+
 }
 
 .single-mini-course a {
@@ -3281,13 +3291,61 @@ a.comment-reply-link {
 .single-mini-course h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 34px;
+    margin-top: 60px;
 }
 
 .single-mini-course .text p {
     font-size: 18px;
     line-height: 34px;
     margin-top: 20px;
+}
+
+.single-mini-course .mini-course {
+    margin-top: 0 !important;
+}
+
+.single-mini-course .mini-course .back {
+    color: #303466;
+    font-size: 14px;
+}
+
+.single-mini-course .mini-course h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #363636;
+    margin: 20px 0 6px;
+}
+
+
+.single-mini-course .mini-course .third-section {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 85vh;
+}
+
+.single-mini-course .mini-course .third-section::-webkit-scrollbar {
+    display: none;
+}
+
+.single-mini-course .mini-course .third-section .video.active {
+    border: 1px solid #363636;
+}
+
+.single-mini-course .mini-course .third-section .video div {
+    position: unset;
+}
+
+.single-mini-course.mobile {
+    display: none;
+}
+
+.single-mini-course.desktop {
+    display: block;
+}
+
+.single-mini-course .mini-course .third-section .video .title {
+    font-size: 15px;
 }
 
 /*----Media Query----*/
@@ -3709,6 +3767,36 @@ a.comment-reply-link {
     }
 
     .mini-course .text {
+        font-size: 16px;
+    }
+
+    .single-mini-course.desktop {
+        display: none;
+    }
+
+    .single-mini-course.mobile {
+        display: block;
+    }
+
+    .single-mini-course .mini-course .third-section {
+        height: auto;
+        overflow: auto;
+    }
+
+    .single-mini-course .share {
+        margin-top: 20px;
+    }
+
+    .single-mini-course .share-item {
+        width: 65%;
+    }
+
+    .single-mini-course h2 {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    .single-mini-course .text p {
         font-size: 16px;
     }
 }
