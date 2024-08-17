@@ -3355,6 +3355,10 @@ a.comment-reply-link {
     display: none !important;
 }
 
+.fixed-dl{
+    display: none;
+}
+
 /*----Media Query----*/
 
 @media (max-width: 1200px) {
@@ -3513,6 +3517,105 @@ a.comment-reply-link {
     .mini-course {
         margin: 100px 0 50px;
     }
+
+    .fixed-dl {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 10px;
+        background: #f0f0f0;
+        border: 1px solid #C1C1C1;
+        box-shadow: 0px -1px 18px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        cursor: pointer;
+        display: block;
+        height: 60px;
+        z-index: 100;
+    }
+
+    .fixed-dl h3 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 36px;
+        color: #393939;
+        margin: 0 !important;
+        position: relative;
+        display: inline-block;
+        width: 85%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+
+    .fixed-dl .desc {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #808080;
+        margin: 20px 0;
+    }
+
+    .fixed-dl a {
+        background: #FD5D3E;
+        border: 1px solid #FD5D3E;
+        width: 100%;
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 36px;
+        text-align: center;
+        color: #FFFFFF;
+        margin: 10px 0;
+
+    }
+    .fixed-dl a.no-style {
+        background-color: transparent;
+        border: none;
+    }
+    .fixed-dl img {
+        float: left;
+        position: relative;
+        top: 10px;
+        left: 10px;
+    }
+
+    .fixed-dl img.closed {
+        position: absolute !important;
+        top: 18px !important;
+        left: 21px;
+    }
+
+    .fixed-dl .opened,
+    .fixed-dl.open .closed {
+        display: none;
+    }
+
+    .fixed-dl.open .opened {
+        display: inline-block;
+    }
+
+    .fixed-dl.open h3 {
+        display: inline-block;
+    }
+
+    .fixed-dl.open {
+        height: auto;
+        border-radius: 24px 24px 0px 0px;
+        padding: 24px 20px;
+    }
+
+    .fixed-dl .desc,
+    .fixed-dl a {
+        display: none;
+    }
+
+    .fixed-dl.open .desc,
+    .fixed-dl.open a {
+        display: block;
+    }
+
 }
 
 @media (max-width: 768px) {

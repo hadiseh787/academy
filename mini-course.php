@@ -72,10 +72,6 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
                             </div>
                             <?php echo the_field('price'); ?>
                         </div>
-
-                        <div class="signup">
-                            <a href="https://didarsalesdemy.com/courses/form/">ثبت‌نام در دوره</a>
-                        </div>
                     </div>
 
                     <div class="share mobile">
@@ -302,6 +298,25 @@ $title = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMP
             </div>
         </div>
     </section>
+    <div class="fixed-dl">
+        <div class="clickable">
+            <h3>حرفه‌ای تر آموزش ببین،بیشتر بفروش!</h3>
+            <img decoding="async" class="opened" src="https://didar.me/wp-content/plugins/sendinblue//public/img/opened.svg">
+            <img decoding="async" class="closed"  src="https://didar.me/wp-content/plugins/sendinblue//public/img/closed.svg">
+        </div>
+        <a class="no-style" href="https://didarsalesdemy.com/courses/form/" target="_blank"><img decoding="async"
+                                                                            src="https://didarsalesdemy.com/wp-content/uploads/2024/08/banner.png"
+                                                                            class="webinar-img"></a>
+
+    </div>
 </main>
 
-    <?php get_footer(); ?>
+<script>
+    jQuery(document).ready(function ($) {
+        $('.clickable').click(function () {
+            $('.fixed-dl').toggleClass('open');
+        });
+    });
+</script>
+
+<?php get_footer(); ?>
