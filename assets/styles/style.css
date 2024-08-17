@@ -3086,6 +3086,7 @@ a.comment-reply-link {
     font-size: 18px;
     margin-top: 20px;
     color: #696969;
+    text-align: justify;
 }
 
 .mini-course .third-section .video {
@@ -3298,6 +3299,7 @@ a.comment-reply-link {
     font-size: 18px;
     line-height: 34px;
     margin-top: 20px;
+    text-align: justify;
 }
 
 .single-mini-course .mini-course {
@@ -3346,6 +3348,11 @@ a.comment-reply-link {
 
 .single-mini-course .mini-course .third-section .video .title {
     font-size: 15px;
+}
+
+.protected_by_digits_text,
+.protected_by_digits_logo {
+    display: none !important;
 }
 
 /*----Media Query----*/
@@ -3759,11 +3766,20 @@ a.comment-reply-link {
 
     .mini-course .swiper-button-next.seven,
     .mini-course .swiper-button-prev.seven {
-        display: none;
+        top: 80% !important;
+    }
+
+    .mini-course .swiper-button-next.seven:after,
+    .mini-course .swiper-button-prev.seven:after {
+        color: #363636;
     }
 
     .mini-course h2 {
-        font-size: 26px;
+        font-size: 27px;
+    }
+
+    .mini-course h3 {
+        font-size: 22px;
     }
 
     .mini-course .text {
@@ -3798,6 +3814,11 @@ a.comment-reply-link {
 
     .single-mini-course .text p {
         font-size: 16px;
+    }
+
+    .mini-course .acc-btn .accordion-item__title {
+        padding-right: 5px;
+        padding-left: 32pxpx;
     }
 }
 
