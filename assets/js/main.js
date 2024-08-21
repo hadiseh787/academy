@@ -261,5 +261,9 @@ $(document).ready(function () {
         $('.toc-container').toggleClass("open");
 
     });
-
+    jQuery(document).ready(function ($) {
+        $('.clickable').click(function () {
+            $('.fixed-dl').toggleClass('open');
+        });
+    });
 });

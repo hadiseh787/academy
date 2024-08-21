@@ -4,11 +4,19 @@
  */
 
 ?>
+<div class="fixed-dl">
+    <div class="clickable">
+        <h3>حرفه‌ای تر آموزش ببین،بیشتر بفروش!</h3>
+        <img decoding="async" class="opened" src="https://didar.me/wp-content/plugins/sendinblue//public/img/opened.svg">
+        <img decoding="async" class="closed"  src="https://didar.me/wp-content/plugins/sendinblue//public/img/closed.svg">
+    </div>
+    <a class="no-style" href="https://didarsalesdemy.com/courses/form/" target="_blank"><img decoding="async"
+                                                                                             src="https://didarsalesdemy.com/wp-content/uploads/2024/08/banner.png"
+                                                                                             class="webinar-img"></a>
 
+</div>
 <?php if (!is_page_template('sign-up.php') && !is_page_template('success.php')) { ?>
-    <footer class="<?php if (is_singular('post') || is_singular('courses') || is_page_template('home-page.php') || is_page_template('mini-course.php')|| is_page_template('single-mini-courses.php'))  {
-        echo 'has-padding';
-    } ?>">
+    <footer class="has-padding">
         <div class="container-fluid">
             <div class="row justify-content-center">
 

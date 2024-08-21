@@ -3113,7 +3113,7 @@ a.comment-reply-link {
 }
 
 .mini-course .third-section .video .title {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .mini-course .third-section .video div,
@@ -3355,7 +3355,15 @@ a.comment-reply-link {
     display: none !important;
 }
 
-.fixed-dl{
+.mini-course .acc-btn .accordion-item__title {
+    font-size: 20px;
+}
+
+.mini-course .acc-content p {
+    font-size: 16px;
+}
+
+.fixed-dl {
     display: none;
 }
 
@@ -3524,9 +3532,9 @@ a.comment-reply-link {
         right: 0;
         left: 0;
         padding: 10px;
-        background: #f0f0f0;
-        border: 1px solid #C1C1C1;
-        box-shadow: 0px -1px 18px rgba(0, 0, 0, 0.08);
+        background: #e7e5e5;
+        border: 2px solid #C1C1C1;
+        box-shadow: 0px -1px 18px rgb(0 0 0 / 22%);
         width: 100%;
         cursor: pointer;
         display: block;
@@ -3570,10 +3578,12 @@ a.comment-reply-link {
         margin: 10px 0;
 
     }
+
     .fixed-dl a.no-style {
         background-color: transparent;
         border: none;
     }
+
     .fixed-dl img {
         float: left;
         position: relative;
@@ -3821,7 +3831,8 @@ a.comment-reply-link {
 
     .about h2,
     .about .technical h4 {
-        font-size: 38px;
+        font-size: 27px;
+        line-height: 58px;
     }
 
     .about h3:before {
@@ -3915,13 +3926,14 @@ a.comment-reply-link {
         font-size: 20px;
     }
 
-    .single-mini-course .text p {
+    .single-mini-course .text p,
+    .mini-course .third-section .video .title {
         font-size: 16px;
     }
 
     .mini-course .acc-btn .accordion-item__title {
         padding-right: 5px;
-        padding-left: 32pxpx;
+        padding-left: 32px;
     }
 }
 
@@ -4179,15 +4191,15 @@ a.comment-reply-link {
         margin: 10px 0 20px;
     }
 
-    .home.courses-list .box .left-section .features,
-    .courses.intro .features,
+    #modules td
     #modules th,
     .acc-content p {
         font-size: 12px;
     }
 
-    #modules td {
-        font-size: 12px;
+    .courses.intro .features,
+    .home.courses-list .box .left-section .features {
+        font-size: 16px;
     }
 
     .prof .content {

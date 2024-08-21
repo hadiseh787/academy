@@ -93,6 +93,7 @@ $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
                                     <li><a href="https://didarsalesdemy.com/professors/">اساتید</a></li>
                                     <li><a href="https://didarsalesdemy.com/mentors/">منتورها</a></li>
                                     <li><a href="https://didarsalesdemy.com/blog/">بلاگ</a></li>
+                                    <li><a href="https://didarsalesdemy.com/mini-course/">مینی دوره</a></li>
                                     <!--                                    <li><a>آموزش‌های رایگان</a></li>-->
                                     <!--                                    <li><a>رویداد در مسیر فروش</a></li>-->
                                     <!--                                    <li><a>مسیر ویژه(بورسیه و استخدام)</a></li>-->
